@@ -1,0 +1,22 @@
+# 🔐 Secret files — kabhi share na karein!
+MY_SECRET_KEY.txt
+MY_SECRET_KEY.bat
+.env
+*.env
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# PDF outputs
+pdf_outputs/
+
+# IDE
+.vscode/
+.idea/

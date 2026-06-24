@@ -1,0 +1,17 @@
+# Bharat AI School V6 — Python Dependencies
+# Install: pip install -r requirements.txt
+
+# Core
+streamlit>=1.35.0
+requests>=2.31.0
+
+# PDF generation (optional — app works without it)
+fpdf2>=2.7.0
+
+# Database (SQLite — built-in, no extra install needed)
+# sqlite3 is part of Python standard library
+
+# For advanced features (install as needed):
+# python-dotenv>=1.0.0    # .env file loading
+# pandas>=2.0.0           # Data analysis in courses
+# numpy>=1.24.0           # Math operations
