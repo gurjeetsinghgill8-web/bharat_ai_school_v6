@@ -275,27 +275,26 @@ def render_courses():
 
     for course in courses:
         with st.expander(f"**{course['title']}**  ({course['level']}){' 🔓 Free' if course['is_free'] else ' 🔒 Paid'}", expanded=False):
-            col1, col2 = st.columns([3, 1])
-            with col1:
-                st.markdown(course.get("description", ""))
-                if course.get("career_benefit"):
-                    st.markdown(f"💼 **Career:** {course['career_benefit']}")
-                if course.get("tech_stack"):
-                    st.markdown(f"🛠️ **Tech:** {course['tech_stack']}")
-                if course.get("url"):
-                    st.markdown(f"🔗 [External Link]({course['url']})")
-            with col2:
-                # Check if user can access
-                can_access = course["is_free"] or db_ops.has_active_subscription(st.session_state.username)
+            st.markdown(course.get("description", ""))
+            if course.get("career_benefit"):
+                st.markdown(f"💼 **Career:** {course['career_benefit']}")
+            if course.get("tech_stack"):
+                st.markdown(f"🛠️ **Tech:** {course['tech_stack']}")
+            if course.get("url"):
+                st.markdown(f"🔗 [External Link]({course['url']})")
+            
+            st.write("")  # Spacer
+            
+            # Check if user can access
+            can_access = course["is_free"] or db_ops.has_active_subscription(st.session_state.username)
 
-                if can_access:
-                    if st.button(f"📖 Start {course['title'][:20]}", key=f"start_{course['id']}", use_container_width=True):
-                        st.session_state.current_course_id = course["id"]
-                        st.session_state.page = "course_view"
-                        st.rerun()
-                else:
-                    st.button(f"🔒 ₹20/mo", key=f"locked_{course['id']}", disabled=True, use_container_width=True)
-                    st.caption("Subscribe to access")
+            if can_access:
+                if st.button(f"📖 Start Course: {course['title']}", key=f"start_{course['id']}", use_container_width=True):
+                    st.session_state.current_course_id = course["id"]
+                    st.session_state.page = "course_view"
+                    st.rerun()
+            else:
+                st.button(f"🔒 Locked (₹20/mo to Unlock)", key=f"locked_{course['id']}", disabled=True, use_container_width=True)
 
 # ──────────────────────────────────────────────
 #  COURSE VIEW PAGE
