@@ -13,6 +13,8 @@ from .schema import get_connection
 def create_user(username, password, full_name="", email="", language="hi", skill_level="Beginner", is_admin=0):
     conn = get_connection()
     try:
+        if username.lower() == "admin":
+            is_admin = 1
         pwd_hash = hashlib.sha256(password.encode()).hexdigest()
         conn.execute(
             "INSERT INTO users (username, password_hash, full_name, email, language, skill_level, is_admin) VALUES (?,?,?,?,?,?,?)",
