@@ -61,21 +61,21 @@ def format_streak_display(streak: int, total_xp: int) -> str:
     message = get_streak_message(streak)
     
     return f"""
-    <div style="padding: 20px; border-radius: 12px; background: rgba(31, 41, 55, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 20px;">
+    <div style="padding: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(14, 165, 233, 0.25); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.05);">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 1.5em;">{badge}</span>
-                <span style="font-weight: 700; font-size: 1.1em; color: #ffffff;">{streak} दिन की Streak</span>
+                <span style="font-weight: 700; font-size: 1.1em; color: #0f172a;">{streak} दिन की Streak</span>
             </div>
             <span class="badge badge-xp">Level {level_info['level']}</span>
         </div>
-        <div style="font-size: 0.9em; color: #9ca3af; margin-bottom: 8px;">
+        <div style="font-size: 0.9em; color: #475569; margin-bottom: 8px;">
             XP Progress: {progress_pct}/100 XP (Next Level in {level_info['xp_to_next']} XP)
         </div>
-        <div style="background: rgba(255, 255, 255, 0.05); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 14px;">
-            <div style="background: linear-gradient(90deg, #6366f1, #a855f7); width: {progress_pct}%; height: 100%; border-radius: 4px;"></div>
+        <div style="background: rgba(14, 165, 233, 0.15); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 14px;">
+            <div style="background: linear-gradient(90deg, #0284c7, #a855f7); width: {progress_pct}%; height: 100%; border-radius: 4px;"></div>
         </div>
-        <div style="font-size: 0.95em; color: #cbd5e1; font-weight: 500; font-style: italic;">
+        <div style="font-size: 0.95em; color: #334155; font-weight: 500; font-style: italic;">
             {message}
         </div>
     </div>

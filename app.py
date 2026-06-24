@@ -231,7 +231,7 @@ def render_home():
                 <div class="leaderboard-row">
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <span class="leaderboard-rank">{rank_emoji}</span>
-                        <span style="font-weight: 600; color: #ffffff;">{entry['username']}</span>
+                        <span style="font-weight: 600; color: #0f172a;">{entry['username']}</span>
                     </div>
                     <div style="display: flex; gap: 8px;">
                         <span class="badge badge-streak">🔥 {entry['current_streak']}d</span>
